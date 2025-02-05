@@ -22,7 +22,7 @@ int main(){
     getWordsFromWordPool();
     freopen("/dev/tty", "r", stdin);
 
-    showTypingScreen(1);
+    // showTypingScreen(1);
 
     showAnimationScreen(true);
     while ( true ){

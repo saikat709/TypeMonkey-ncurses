@@ -67,9 +67,7 @@ int showHomeScreen() {
     // nodelay(menu_win, true);
     while( !exitHome ){
         ch = wgetch(menu_win);
-        printf("C: %c ", ch);
-        if ( ch == 'q' ) exitHome = true;
-
+        // printf("C: %c ", ch);
         mvprintw( LINES - 2, 1, "CLICKED: %c |", (char) ch );
 
         switch (ch) {
@@ -94,19 +92,30 @@ int showHomeScreen() {
                     showLevelChoiceScreen();
                     exitHome = true;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[1] ) == 0 ){
-                    
+                    showAnimationScreen(false);
+                    showBestScoreScreen();
+                    exitHome = true;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[2] ) == 0 ){
-                    
+                    showAnimationScreen(false);
+                    showScoresScreen();
+                    exitHome = true;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[3] ) == 0 ){
                     exitHome = true;
                     endwin();
                     exit(0);
                 }
                 break;
-
+            
+            case 'q':
+            case 'Q':
+                endwin();
+                exitHome = true;
+                exit(0);
+                break;
             default:
                 break;
         }
+
         move(LINES-1, COLS-1);
         wrefresh(menu_win);
         refresh();

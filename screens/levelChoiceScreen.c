@@ -99,9 +99,9 @@ int showLevelChoiceScreen() {
                 if ( strcmp( item_name( current_item( menu ) ), choices[0] ) == 0 ){
                    level = 1;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[1] ) == 0 ){
-                   level = 1;
+                   level = 2;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[2] ) == 0 ){
-                   level = 1;
+                   level = 3;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[3] ) == 0 ){
                     exitChoiceScreen = true;
                 } else if ( strcmp( item_name( current_item( menu ) ), choices[4] ) == 0 ){
@@ -115,8 +115,8 @@ int showLevelChoiceScreen() {
                 break;
         }
         if ( level != 0 ){
-             showAnimationScreen(false);
-            showTypingScreen(1);
+            showAnimationScreen(false);
+            showTypingScreen(level);
             exitChoiceScreen = true;
         }
         move(LINES-1, COLS-1);
