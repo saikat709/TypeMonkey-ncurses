@@ -3,10 +3,6 @@
 #include <menu.h>
 #include <string.h>
 
-#include <stdlib.h>
-#include <ncurses.h>
-#include <menu.h>
-#include <string.h>
 
 int showLevelChoiceScreen() {
     int MAX_X, MAX_Y;
@@ -124,7 +120,6 @@ int showLevelChoiceScreen() {
         refresh();
     }
 
-
     // Cleanup
     unpost_menu(menu);
     free_menu(menu);
@@ -132,7 +127,7 @@ int showLevelChoiceScreen() {
     free(items);
     wclear(menu_win);
     delwin(menu_win);
-    endwin();
+    // endwin();
 
     return 0;
 }

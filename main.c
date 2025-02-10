@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 int showAnimationScreen( bool isIntroAnim );
 int showHomeScreen();
 int showLevelChoiceScreen();
@@ -17,17 +18,23 @@ char ** getRandomWords(int level, int word_count);
 
 int main(){
     initscr();
+    curs_set(0);
+    noecho();
     clear();
+    
+
+    mvprintw(0, 0, "GAME START..");
 
     getWordsFromWordPool();
     freopen("/dev/tty", "r", stdin);
 
-    // showTypingScreen(1);
+    // showScoresScreen();
 
     showAnimationScreen(true);
     while ( true ){
         showHomeScreen();
     }
 
+    endwin();
     return 0;
 }

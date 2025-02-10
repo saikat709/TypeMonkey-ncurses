@@ -15,7 +15,7 @@ int showHomeScreen() {
     int menu_height = n_choices + 2;
     int menu_width = 0;
 
-    const char title[] = "Type Master Game";
+    const char title[] = "Type Monkey Game";
     const char info[] = "* Use 'U' or 'D' to move and Enter to select.";
     const char infoQuit[] = "* Use 'q' to quit.";
 
@@ -105,7 +105,7 @@ int showHomeScreen() {
                     exit(0);
                 }
                 break;
-            
+
             case 'q':
             case 'Q':
                 endwin();
@@ -121,15 +121,13 @@ int showHomeScreen() {
         refresh();
     }
 
-
-    // Cleanup
     unpost_menu(menu);
     free_menu(menu);
     for (int i = 0; i < n_choices; ++i) free_item(items[i]);
     free(items);
     wclear(menu_win);
     delwin(menu_win);
-    endwin();
+    // endwin();
 
     return 0;
 }
