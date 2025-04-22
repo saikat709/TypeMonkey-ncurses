@@ -107,10 +107,7 @@ int main(){
     init_pair( TEXT_RIGHT,        COLOR_BLACK, COLOR_GREEN );
     init_pair( TEXT_WRONG,        COLOR_BLACK, COLOR_RED   );
 
-    
-    getRandomWords(1);
 
-    typingScreen(1);
 
     getmaxyx(stdscr, max_y, max_x);
 
@@ -412,7 +409,7 @@ void animatePrintTitle(int starty, int startx, const char *title) {
                     case 3: attrset(A_BOLD | A_STANDOUT); break;
                 }
                 refresh();
-                usleep(delay_ms * 2000);
+                usleep(delay_ms * 1000);
             }
             attrset(A_NORMAL);
             break;
@@ -434,10 +431,10 @@ void animatePrintTitle(int starty, int startx, const char *title) {
             for (i = 0; i < 3; i++) {  // Blink 3 times
                 attrset(A_NORMAL);
                 refresh();
-                usleep(delay_ms * 2000);
+                usleep(delay_ms * 1000);
                 attrset(A_REVERSE);
                 refresh();
-                usleep(delay_ms * 2000);
+                usleep(delay_ms * 1000);
             }
             attrset(A_NORMAL);
             break;
